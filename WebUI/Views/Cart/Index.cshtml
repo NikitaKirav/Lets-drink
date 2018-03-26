@@ -1,0 +1,180 @@
+﻿@using Domain.Entities
+@model WebUI.Models.ProductListViewModel
+
+@{
+	ViewBag.Title = "Cart";
+}
+
+<aside class="col-md-2">
+	<nav class="nav d-flex justify-content-between col-nav row">
+		<div class="title-col-nav">Категории</div>
+		<a class="category-list" href="@Url.Action("List", "Products")"><div>Продукция</div></a>
+		<a class="category-list" href="@Url.Action("List", "Products")"><div>Культура пития</div></a>
+		<a class="category-list" href="@Url.Action("List", "Products")"><div>О Проекте</div></a>
+		<a class="category-list" href="@Url.Action("Index", "Contact")"><div>Контакты</div></a>
+	</nav>
+</aside>
+
+<div class="col-md-10">
+	<h2>Корзина</h2>
+	@Html.ValidationSummary(true)
+
+@using (Html.BeginForm("CheckOut", "Cart", FormMethod.Post))
+{
+	<div class="details-cart">
+		@Html.Partial("_CartTable")
+	</div>
+
+	<h3>Оформление заказа</h3>
+	<div class="details-order">
+		<div class="addressee">Получатель</div>
+		<table class="order-table">
+			<tr>
+				<td>
+					<div class="label-order">Электронная почта</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.Email, new { @class = "text-order form-control" })					
+				</td>
+				<td>
+					<div class="label-order">Телефон</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.Phone, new { @class = "text-order phone form-control", @placeholder = "+7(___) ___-__-__" })					
+				</td>
+				<td>
+					<div class="label-order">Имя</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.Name, new { @class = "text-order phone form-control", @placeholder = "Имя Фамилия" })					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.Email)
+				</td>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.Phone)
+				</td>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.Name)
+				</td>
+			</tr>
+		</table>
+		<div class="addressee">Адрес доставки</div>
+		<table class="order-table">
+			<tr>
+				<td>
+					<div class="label-order">Область, республика</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.State, new { @class = "text-order form-control" })					
+				</td>
+				<td>
+					<div class="label-order">Город</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.City, new { @class = "text-order form-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.State)
+				</td>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.City)
+				</td>
+			</tr>
+		</table>
+
+		@Html.HiddenFor(x => x.ShipingDetails.TypeDelivery)
+		<table class="delivery">
+			<tr>
+				<td class="delivery1">
+					<div>Курьером</div>
+				</td>
+				<td class="delivery2">
+					<div>Самовывоз</div>
+				</td>
+				<td class="delivery3">
+					<div>Транспортной компанией</div>
+				</td>
+			</tr>
+		</table>
+
+		<table class="order-table-part2 post-courier-table">
+			<tr>
+				<td colspan="3">
+					<div class="label-order">Адрес(Улица, Дом, Корпус)</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.Address, new { @class = "text-order form-control" })
+				</td>
+				<td class="col-30">
+					<div class="label-order">Квартира/Офис</div>
+					@Html.TextBoxFor(x => x.ShipingDetails.Apartment, new { @class = "text-order form-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.Address)
+				</td>
+				<td>
+					@Html.ValidationMessageFor(x => x.ShipingDetails.Apartment)
+				</td>
+			</tr>
+		</table>
+			<table class="order-table-part2 post-table">
+				<tr>
+					<td colspan="2"></td>
+					<td class="col-30">
+						<div class="label-order">Индекс</div>
+						@Html.TextBoxFor(x => x.ShipingDetails.Indecs, new { @class = "text-order form-control" })
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+					<td class="col-30">
+						@Html.ValidationMessageFor(x => x.ShipingDetails.Indecs)
+					</td>
+				</tr>
+			</table>
+
+			<table class="order-table-part2 courier-table">
+				<tr>
+					<td>
+						<div class="label-order">Подъезд</div>
+						@Html.TextBoxFor(x => x.ShipingDetails.Entrance, new { @class = "text-order form-control" })
+					</td>
+					<td>
+						<div class="label-order">Домофон</div>
+						@Html.TextBoxFor(x => x.ShipingDetails.Doorphone, new { @class = "text-order form-control" })
+					</td>
+					<td>
+						<div class="label-order">Этаж</div>
+						@Html.TextBoxFor(x => x.ShipingDetails.Floor, new { @class = "text-order form-control" })
+					</td>
+					<td>
+						<div class="label-order">Комментарий курьеру</div>
+						@Html.TextBoxFor(x => x.ShipingDetails.Comment, new { @class = "text-order form-control" })
+					</td>
+				</tr>
+				<tr>
+					<td>
+						@Html.ValidationMessageFor(x => x.ShipingDetails.Entrance)
+					</td>
+					<td>
+						@Html.ValidationMessageFor(x => x.ShipingDetails.Doorphone)
+					</td>
+					<td>
+						@Html.ValidationMessageFor(x => x.ShipingDetails.Floor)
+					</td>
+					<td>
+						@Html.ValidationMessageFor(x => x.ShipingDetails.Comment)
+					</td>
+				</tr>
+			</table>
+
+			<div class="order-table-part2 youself-table">Вы можете самостоятельно забрать покупки со склада по адресу: г.Москва, ул.Земляной вал, 33</div>
+
+			<div class="addressee">Оплата</div>
+			<div class="comment">
+				Оплаты нет! Уважаемые посетители сайта, обращаем Ваше внимание на то, что информация, размещенная на сайте, носит исключительно информационно-образовательный характер.
+				К сожалению, здесь вы ничего не купите :(
+			</div>
+
+			<div class="cart-order">
+				<input type="submit" class="button-submit" value="Подтвердить заказ" />
+			</div>
+	</div>
+}
+</div>
+

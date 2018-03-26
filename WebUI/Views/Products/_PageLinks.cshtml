@@ -1,0 +1,5 @@
+﻿@using WebUI.Models
+
+@model ProductListViewModel
+
+@Html.PageLink(Model.PageInfo, x => Url.Action("List", new { page = x }))

@@ -1,0 +1,66 @@
+﻿@using Domain.Entities
+@using WebUI.Models
+
+@model ProductListViewModel
+
+@{
+	ViewBag.Title = "Details";
+	CartLine cartLine = new CartLine();
+	int quantity = 1;
+	foreach (var item in Model.Carts)
+	{
+		if (item.Product.ProductId == Model.Product.ProductId)
+		{
+			cartLine = item;
+			break;
+		}
+	}
+	if (cartLine.Quantity != 0)
+	{
+		quantity = cartLine.Quantity;
+	}
+}
+
+<aside class="col-md-2">
+	@Html.Partial("_CartColNav")
+	@Html.Partial("_CategoryColNav")
+</aside>
+
+<div class="col-md-10">
+	<h2>@Model.Product.Name</h2>
+	<div class="details-product">
+		<div class="col-md-4 image-panel">
+			<div class="window-image">
+				<img class="big-icon" src="@Model.Product.Image[0].ImagePath" />
+			</div>
+			<div class="group-image">
+				@foreach (ImageProduct image in Model.Product.Image)
+				{
+					<img class="small-icon" src="@image.ImagePath" style="width: @(275/Model.Product.Image.Count)px; height: @(275/Model.Product.Image.Count)px;" onclick="ClickImageSmall('@image.ImagePath')" />
+				}
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="info-product">
+				<div class="row-info"><label>Производитель/страна:&nbsp;</label>@Model.Product.Mark/@Model.Product.Country</div>
+				<div class="row-info"><label>Модель:&nbsp;</label>@Model.Product.Article</div>
+			</div>
+			<div class="price-block">
+				<label>Цена:</label><div class="price-text">@Model.Product.Price.ToString("##,###₽")</div>
+			</div>
+			<div class="buy">
+				<label>Количество:</label>
+				<div class="cart-quantity">
+					<input id="quantity" class="cart-quantity-text form-control" type="text" value="@quantity" />
+				</div>
+				<div class="cart-buy">
+					<a class="btn-buy" onclick="OnClickBuy(@Model.Product.ProductId)"><span>Купить</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="description">
+		<div class="description-header">Описание</div>
+		<div class="description-body">@Model.Product.Description</div>
+	</div>
+</div>

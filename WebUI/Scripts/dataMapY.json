@@ -1,0 +1,101 @@
+﻿{
+	"type": "FeatureCollection",
+	"features": [
+					{
+						"type": "Feature",
+						"id": 0,
+						"address": "Москва, ул.Земляной Вал, 33",
+						"geometry": {
+							"type": "Point",
+							"coordinates": [ 55.757339, 37.659164 ]
+						},
+																					"properties": {
+																						"balloonContentHeader": "<font size=3><b>Здесь находится наш офис продаж</b></font>",
+																						"balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате +7 (xxx)xxx-xx-xx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+																						"balloonContentFooter": "<font size=1>Вся информация носит учебный характер </font>",
+																						"clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+																						"hintContent": "<strong>Москва, ул.Земляной Вал, 33</strong>"
+																					}
+					},
+					{
+						"type": "Feature",
+						"id": 1,
+						"address": "Москва, ул. Петровка, 10",
+						"geometry": {
+							"type": "Point",
+						"coordinates": [ 55.762399, 37.619117 ]
+						},
+																					"properties": {
+																						"balloonContentHeader": "<font size=3><b>Здесь находится наш офис продаж</b></font>",
+																						"balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате +7 (xxx)xxx-xx-xx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+																						"balloonContentFooter": "<font size=1>Вся информация носит учебный характер </font>",
+																						"clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+																						"hintContent": "<strong>Москва, ул. Петровка, 10</strong>"
+																					}
+					},
+					{
+						"type": "Feature",
+						"id": 2,
+						"address": "Москва, ул. Новый Арбат, 19",
+						"geometry": {
+							"type": "Point",
+							"coordinates": [ 55.752156,	37.588548 ]
+						},
+																					"properties": {
+																						"balloonContentHeader": "<font size=3><b>Здесь находится наш офис продаж</b></font>",
+																						"balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате +7 (xxx)xxx-xx-xx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+																						"balloonContentFooter": "<font size=1>Вся информация носит учебный характер </font>",
+																						"clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+																						"hintContent": "<strong>Москва, ул. Новый Арбат, 19</strong>"
+																					}
+					},
+					{
+						"type": "Feature",
+						"id": 3,
+						"address": "Москва, площадь Киевского Вокзала, 2",
+						"geometry": {
+							"type": "Point",
+							"coordinates": [ 55.744632, 37.566072 ]
+						},
+																					"properties": {
+																						"balloonContentHeader": "<font size=3><b>Здесь находится наш офис продаж</b></font>",
+																						"balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате +7 (xxx)xxx-xx-xx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+																						"balloonContentFooter": "<font size=1>Вся информация носит учебный характер </font>",
+																						"clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+																						"hintContent": "<strong>Москва, площадь Киевского Вокзала, 2</strong>"
+																					}
+					},
+					{
+						"type": "Feature",
+						"id": 4,
+						"address": "Москва, Bolshaya Tulskaya Street, 13",
+						"geometry": {
+							"type": "Point",
+							"coordinates": [ 55.708729, 37.622091 ]
+						},
+																					"properties": {
+																						"balloonContentHeader": "<font size=3><b>Здесь находится наш офис продаж</b></font>",
+																						"balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате +7 (xxx)xxx-xx-xx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+																						"balloonContentFooter": "<font size=1>Вся информация носит учебный характер </font>",
+																						"clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+																						"hintContent": "<strong>Москва, Bolshaya Tulskaya Street, 13</strong>"
+																					}
+					},
+					{
+						"type": "Feature",
+						"id": 5,
+						"address": "Москва, Киевское шоссе, 22-й километр, дв4с1кА",
+						"geometry": {
+							"type": "Point",
+							"coordinates": [ 55.634151, 37.441026 ]
+						},
+																					"properties": {
+																						"balloonContentHeader": "<font size=3><b>Здесь находится наш офис продаж</b></font>",
+																						"balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате +7 (xxx)xxx-xx-xx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+																						"balloonContentFooter": "<font size=1>Вся информация носит учебный характер </font>",
+																						"clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+																						"hintContent": "<strong>Москва, Киевское шоссе, 22-й километр, дв4с1кА</strong>"
+																					}
+					}
+	]
+}

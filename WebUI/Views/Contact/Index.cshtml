@@ -1,0 +1,69 @@
+﻿@using Domain.Entities
+@model IEnumerable<Shop>
+
+@{
+	ViewBag.Title = "Contact";
+}
+
+<title></title>
+<style type="text/css">
+	a {
+		outline: none;
+	}
+
+		a img {
+			border: none;
+		}
+</style>
+<h3>Контакты</h3>
+<table class="contact-table">
+	<tr>
+		<td class="row-tab" height="40px"><div class="img-phone"></div><div class="column1">Телефон <span>(розничные продажи частным лицам):</span></div></td>
+		<td><div class="column2">+7 (000) <span>000-00-00</span></div></td>
+	</tr>
+	<tr>
+		<td class="row-tab" height="40px"><div class="img-phone"></div><div class="column1">Телефон <span>(оптовые и корпоративные продажи):</span></div></tdwidth="40%">
+		<td><div class="column2">+7 (000) <span>000-00-00</span></div></td>
+	</tr>
+	<tr>
+		<td class="row-tab" height="40px"><div class="img-email"></div><div class="column1">Email:</div></td>
+		<td><div class="column2">info<span>@@</span>lets-drink.ru</div></td>
+	</tr>
+	<tr>
+		<td height="40px"><div class="column1">Отдел продаж:</div></td>
+		<td><div class="column2">Понедельник – Пятница с <span>10.00</span> до <span>18.00</span></div></td>
+	</tr>
+	<tr>
+		<td height="40px"><div class="column1">Служба доставки:</div></td>
+		<td><div class="column2">Понедельник – Пятница с <span>10.00</span> до <span>21.00</span>, Суббота с <span>10.00</span> до <span>18.00</span></div></td>
+	</tr>
+	<tr>
+		<td height="40px"><div class="column1">Web-сайт:</div></td>
+		<td><div class="column2"><span>Круглосуточно</span>, семь дней в неделю</div></td>
+	</tr>
+</table>
+
+<p><a href="javascript:look('div1');">Реквизиты компании</a></p>
+
+<div id="div1" style="display: none;">
+	<div class="recvisit"><span>Полное наименование юридического лица:</span>&nbsp;Общество с ограниченной ответственностью&nbsp;&laquo;Lets-drink&raquo;</div>
+
+	<div class="recvisit"><span>Сокращенное наименование юридического лица:</span>&nbsp;ООО &laquo;Lets-drink&raquo;</div>
+
+	<div class="recvisit"><span>ОГРН:</span>&nbsp;1234567890123</div>
+
+	<div class="recvisit"><span>ИНН/КПП:</span>&nbsp;1234567890/123456789</div>
+
+	<div class="recvisit"><span>Юридический адрес:</span>&nbsp;123456, Российская Федерация, г. Москва, Сиреневый бульвар, д. 1</div>
+
+	<div class="recvisit"><span>Расчетный счет:</span>&nbsp;Альфа-Банк&raquo; к/с&nbsp;12345678900000000000</div>
+
+	<div class="recvisit"><span>ОКВЭД:</span>&nbsp;51.4</div>
+</div>
+
+<div id="myMap"></div>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
+<script src="~/Scripts/YMaps.js"></script>
+
+

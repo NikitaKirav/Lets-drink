@@ -1,0 +1,8 @@
+﻿@model WebUI.Models.ProductListViewModel
+
+<nav class="nav d-flex justify-content-between col-nav row">
+	<div class="title-col-nav"><a href="@Url.Action("Index", "Cart")">Корзина</a></div>
+	<div class="cart-col-nav">
+		@Html.Partial("_CartColNavTemp")
+	</div>
+</nav>

@@ -1,0 +1,40 @@
+﻿@using Domain.Entities
+@using WebUI.Models
+
+@model ProductListViewModel
+
+@{
+	ViewBag.Title = "Товары";
+}
+
+<aside class="col-md-2">
+	@Html.Partial("_CartColNav")
+	@Html.Partial("_CategoryColNav")
+	@Html.Partial("_BanerColNav")
+</aside>
+
+<div class="col-md-10">
+	<h2>Продукция</h2>
+		<div class="row product-filter">
+			<div class="view">
+				<span><b>Вид:</b></span>
+				<div class="button-panel">
+					<div class="button as-list"></div>
+					<div class="button as-grid"></div>
+				</div>
+			</div>
+			<div class="paging-panel">
+				<b>На странице:</b>
+				@Html.DropDownList("pageSize", new SelectList(new[] { "6", "9", "12", "15" }, @Model.PageInfo.PageSize.ToString()), new { onchange = "onChangeDropDownList()" })
+			</div>
+		</div>
+
+		<div id="dataProduct">
+			<div class="container-product row mb-2">
+				@Html.Partial("_Products")
+			</div>
+			<div class="page-number text-right">
+				@Html.Partial("_PageLinks")
+			</div>
+		</div>
+</div>

@@ -1,0 +1,47 @@
+﻿@using Domain.Entities
+@using WebUI.Models
+
+@model ProductListViewModel
+
+@{
+	int i = 1;
+	string item = "";
+}
+@foreach (Product list in Model.Products)
+{
+	if (i != 3) { i++; item = ""; }
+	else { item = "last-item"; i = 1; }
+
+	<div class="product @item" id="product">
+		<a href="@Url.Action("Details", "Products", new { id = @list.ProductId })">
+			@foreach (ImageProduct image in @list.Image)
+			{
+				if (image.ImageMainPath == true)
+				{
+					<img class="icon" src="@image.ImagePath" />
+				}
+			}
+		</a>
+		<div class="info">
+			<div class="name"><a href="@Url.Action("Details", "Products", new { id = @list.ProductId })"><div class="name-product">@list.Name</div></a></div>
+			<div class="description">
+				@{
+					List<char> text = list.Description.ToList();
+					text = text.Take(250).ToList();
+					string res = "";
+					foreach (char c in text)
+					{ res += c; }
+					res += "...";
+				}
+				@res
+			</div>
+			<div class="price">@list.Price.ToString("##,###₽")</div>
+
+			<div class="cart-buy">
+					<a class="btn-buy" onclick="OnClickBuy(@list.ProductId)"><span>Купить</span></a>
+			</div>
+
+		</div>
+	</div>
+}
+

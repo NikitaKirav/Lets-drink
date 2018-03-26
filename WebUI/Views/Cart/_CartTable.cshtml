@@ -1,0 +1,43 @@
+﻿@model WebUI.Models.ProductListViewModel
+
+<table class="cart-table">
+	<thead>
+		<tr class="table-header">
+			<th class="th-image"></th>
+			<th class="th-name">Наименование</th>
+			<th class="th-quantity">Количество</th>
+			<th class="th-sum">Сумма, ₽</th>
+			<th class="th-remove"></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Carts)
+		{
+			<tr>
+				<td><div class="cart-image"><img src="@item.Product.Image[0].ImagePathMini" title="@item.Product.Name" alt="@item.Product.Name" /></div></td>
+				<td><a href="@Url.Action("Details", "Products", new { id = @item.Product.ProductId })"><div class="cart-name">@item.Product.Name</div></a></td>
+				<td>
+					<div class="cart-quantity">
+						<input class="cart-quantity-text form-control" type="text" value="@item.Quantity" onchange="OnChangeQuantity(@item.Product.ProductId, value)" />
+					</div>
+					<div class="unit-price">1шт&nbsp;=&nbsp;@item.Product.Price.ToString("##,###₽")</div>
+				</td>
+				<td><div class="cart-sum">@((@item.Quantity * @item.Product.Price).ToString("##,###"))</div></td>
+				<td>
+					<div class="cart-table-remove">
+						<span><img src="~/Content/Images/remove.png" alt="remove" title="удалить" onclick="OnClickRemove2(@item.Product.ProductId)" /></span>
+					</div>
+				</td>
+			</tr>
+		}
+		<tr class="table-footer">
+			<td colspan="3">
+				<div class="text-sum">Итого:</div>
+			</td>
+			<td>
+				<div class="cart-total">@Model.Carts.Sum(c => c.Product.Price * c.Quantity).ToString("##,###₽")</div>
+			</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@model WebUI.Models.ProductListViewModel
+
+@if (Model.Carts.Count() != 0)
+{
+	<table class="cart">
+		@foreach (var item in Model.Carts)
+		{
+			<tr class="cart-row">
+				<td class="cart-image">
+					<a href="@Url.Action("Details", "Products", new { id = item.Product.ProductId })">
+						<img src="@item.Product.Image[0].ImagePathMini" title="@item.Product.Name" alt="@item.Product.Name" />
+					</a>
+				</td>
+				<td class="cart-name">
+					<a href="@Url.Action("Details", "Products", new { id = item.Product.ProductId })">
+						<div class="cart-product-name">@item.Product.Name</div></a>
+						<div class="flex-column">
+							<span class="col-cart-quantity">X @item.Quantity.ToString("# шт.")</span>
+							<span class="col-cart-price">@item.Product.Price.ToString("##,###₽")</span>
+						</div>
+				</td>
+				<td class="cart-remove">
+					<span><img src="~/Content/Images/close.png" alt="remove" title="удалить" onclick="OnClickRemove(@item.Product.ProductId)" /></span>
+				</td>
+			</tr>
+		}
+	</table>
+	<div class="cart-total-sum">Итого:&nbsp;<span class="cart-price">@Model.Carts.Sum(c => c.Product.Price * c.Quantity).ToString("##,###₽")</span></div>
+}
+else
+{
+	<div class="cart-empty">Ваша корзина пуста!</div>
+}
